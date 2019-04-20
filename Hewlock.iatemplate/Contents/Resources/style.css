@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab');
+
+html {
+	background-color: white;
+}
+
+.md {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	line-height: 1.8;
+}
+
+.md h1,
+.md h2,
+.md h3 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+.md h4,
+.md h5,
+.md h6 {
+	font-family: condensed, 'Roboto Condensed', sans-serif;
+	font-weight: bold;
+}
+
+.md h1 {
+	font-size: 2em;
+	line-height: 1.2em;
+}
