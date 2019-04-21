@@ -180,23 +180,38 @@ ol, ul {
 	padding: 0;
 }
 
+ul ul, ul ol, ol ol, ol ul {
+	margin: 0.5em 0 0.5em var(--margin-half);
+}
+
+ol {
+	list-style: none;
+	counter-reset: custom-counter;
+}
+
 li {
 	margin: 0.5em 0;
 }
 
-ul ul, ul ol, ol ol, ol ul {
-	margin: 0;
-	padding-left: var(--margin);
+li::before {
+	display: inline-block;
+	margin: 0 0 0 calc(var(--margin-half) * -1);
+	text-align: left;
+	width:  var(--margin-half);
 }
 
-ul > li::before {
-	content: '•';
-	display: inline-block;
-	margin: 0 0 0 calc(var(--margin) * -1);
-	text-align: center;
-	width:  var(--margin);
+ol > li {
+	counter-increment: custom-counter;
+}
+
+ol > li::before {
+	content: counter(custom-counter) ". ";
 }
 
 ul > li {
 	list-style-type: none;
+}
+
+ul > li::before {
+	content: '•';
 }
