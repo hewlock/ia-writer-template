@@ -1,16 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab');
 
-html {
-	background-color: white;
+:root {
+	--border: 2px solid #d6d8da;
+	--border-radius-code: .2rem;
+	--border-weight: 2px;
+	--color-code: #f0f2f4;
+	--color-link: #0366d6;
+	--font-condensed: 'Roboto Condensed', sans-serif;
+	--font-monospace: 'Roboto Mono', monospace;
+	--font-sans-serif: 'Roboto', sans-serif;
+	--font-serif: 'Roboto Slab', sans-serif;
+	--line-height-code: 1.5;
+	--line-height-heading: 1.2;
+	--line-height-text: 1.8;
+	--margin-half: 1.5rem;
+	--margin: 3rem;
 }
 
-.md {
-	font-family: 'Roboto', sans-serif;
-	line-height: 1.8;
-	margin: 0 auto;
-    width: 80%;
-    max-width: 675px;
+html {
+	background-color: white;
+	font-family: var(--font-sans-serif);
+	line-height: var(--line-height-text);
 }
+
+.mac body {
+	margin: 0 auto;
+	max-width: 675px;
+	padding: 0;
+	width: 80%;
+}
+
+.ios body {
+	margin: 0 var(--margin-half);
+	padding: 0;
+}
+
+/* Scaling */
 
 .content-size-2xs { font-size: 11px; }
 .content-size-xs { font-size: 12px; }
@@ -27,135 +52,149 @@ html {
 .content-size-8xl { font-size: 23px; }
 .content-size-9xl { font-size: 24px; }
 
-.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+/* Headings */
+
+h1, h2, h3 {
+	font-family: var(--font-serif);
 	font-weight: bold;
-	line-height: 1.2em;
-	margin: 1em 0;
+	line-height: var(--line-height-heading);
+	margin: var(--margin-half) 0;
 	padding: 0;
 }
 
-.md h4, .md h5, .md h6 {
-	font-family: 'Roboto Condensed', sans-serif;
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+h4, h5, h6 {
+	font-family: var(--font-condensed);
 	font-weight: normal;
-}
-
-.md h1 {
-	font-size: 2em;
-}
-
-.md h2 {
-	font-size: 1.5em;
-}
-
-.md h3 {
-	font-size: 1.25em;
-}
-
-.md h4 {
-	font-size: 1.5em;
-}
-
-.md h5 {
-	font-size: 1.25em;
-}
-
-.md h6 {
-	font-size: 1em;
-}
-
-.md .hashtag:first-of-type:before {
-    content: '';
-    display: block;
-}
-
-.md .hashtag {
-	font-size: .5em;
-	font-variant: small-caps;
-	padding: .25em;
-}
-
-.md a {
-    color: #0366d6;
-    text-decoration: none;
-}
-
-.md a:hover {
-    text-decoration: underline;
-}
-
-.md figure {
-	margin: 2em 0;
+	line-height: var(--line-height-heading);
+	margin: var(--margin-half) 0;
 	padding: 0;
-	width: 100%;
 }
 
-.md figcaption {
-	font-family: 'Roboto Slab', serif;
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Paragraphs */
+
+p {
+	margin: var(--margin) 0;
+}
+
+/* Links */
+
+a {
+	color: var(--color-link);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* Horizontal Rules */
+
+hr {
+	border: none;
+	border-top: var(--border);
+	margin: var(--margin) 0;
+	padding: 0;
+}
+
+/* Images */
+
+figure, img {
+	width: 100%;
+	padding: 0;
+}
+
+figure {
+	margin: var(--margin) 0;
+}
+
+figcaption {
+	font-family: var(--font-serif);
 	font-size: .9em;
+	font-style: italic;
 	text-align: center;
-    font-style: italic;
 }
 
-.md img {
-	box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, .5);
+img {
+	box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, .5);
 	margin: 0;
-	padding: 0;
-	width: 100%;
 }
 
-.md code {
-    font-family: 'Roboto Mono', monospace;
+/* Quotes */
+
+blockquote {
+	border-left: var(--border);
+	font-family: var(--font-serif);
+	font-style: italic;
+	margin: var(--margin) var(--margin) var(--margin) 0;
+	padding-left: var(--margin);
 }
 
-.md :not(pre) > code {
-	background-color: #f0f2f4;
-	border-radius: 3px;
-	font-size: 0.85em;
+
+/* Tags */
+
+.hashtag {
+	background-color: var(--color-code);
+	border-radius: 1rem;
+	font-size: 1rem;
+	font-weight: bold;
+	margin: var(--margin-half) 0;
+	padding: .25em .75em;
+}
+
+/* Code */
+
+code {
+	font-family: var(--font-monospace);
+}
+
+:not(pre) > code, pre {
+	background-color: var(--color-code);
+	border-radius: var(--border-radius-code);
+	font-size: .9em;
+}
+
+:not(pre) > code {
 	padding: 0 .5em;
 }
 
-.md pre {
-	background-color: #f6f8fa;
-	border-radius: 3px;
-	font-size: .9em;
-	line-height: 1.5;
+pre {
+	line-height: var(--line-height-code);
+	margin: var(--margin) 0;
 	overflow-x: scroll;
 	padding: 1em;
 }
 
-.md blockquote {
-    border-left: 2px solid #d6d8da;
-    font-family: 'Roboto Slab', serif;
-    font-style: italic;
-    margin: 1em 2em 1em 0;
-    padding: 0 0 0 2em;
-}
+/* Lists */
 
-.md hr {
-	border: 1px solid #d6d8da;
-	margin: 2em 0;
+ol {
+	margin: var(--margin) 0 var(--margin) var(--margin);
 	padding: 0;
 }
 
-.md ul, .md ol {
-	margin: 1em 0;
+ul {
+	margin: var(--margin) 0;
 	padding: 0;
 }
 
-.md ol {
-	margin-left: 2em;
-}
-
-.md ul ul, .md ol ol {
+ul ul, ul ol, ol ol, ol ul {
 	margin: 0;
-	padding-left: 3em;
+	padding-left: var(--margin);
 }
 
-.md ul li:before {
-    content: '•';
-    padding: 0 1em;
+
+ul li:before {
+	content: '•';
+	padding: 0 var(--margin-half);
 }
 
-.md ul li {
-    list-style-type: none;
+ul li {
+	list-style-type: none;
 }
