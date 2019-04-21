@@ -175,14 +175,13 @@ pre {
 
 /* Lists */
 
-ol {
+ol, ul {
 	margin: var(--margin) 0 var(--margin) var(--margin);
 	padding: 0;
 }
 
-ul {
-	margin: var(--margin) 0;
-	padding: 0;
+li {
+	margin: 0.5em 0;
 }
 
 ul ul, ul ol, ol ol, ol ul {
@@ -190,12 +189,14 @@ ul ul, ul ol, ol ol, ol ul {
 	padding-left: var(--margin);
 }
 
-
-ul li:before {
+ul > li::before {
 	content: '•';
-	padding: 0 var(--margin-half);
+	display: inline-block;
+	margin: 0 0 0 calc(var(--margin) * -1);
+	text-align: center;
+	width:  var(--margin);
 }
 
-ul li {
+ul > li {
 	list-style-type: none;
 }
